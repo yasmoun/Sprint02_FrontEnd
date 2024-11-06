@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+     <label>Expositions </label>
+     <select class="form-control form-control-lg" id="idExposition" name="idExposition" [(ngModel)]="IdExposition"    (change)="onChange()">
+           <option *ngFor="let exp of expositions" value="{{exp.idExposition}}">
+                {{exp.nom}}
+           </option>
+     </select>
+</div>
+  <div class="card shadow mb-4">
+    <div class="card-body">
+     <table  class="table table-striped">
+             <tr> <th>Id oeuvre</th>
+              <th>Titre</th>
+              <th>Artiste</th>
+              <th>Date Création</th>
+              <th>Catégorie</th>
+              <th>Dimensions</th>
+              <th>Description</th>
+              <th>Prix</th>
+              <th>Exposition</th></tr>
+              <tbody >
+                       <tr *ngFor="let oeuvre of oeuvres">
+                          <td>{{oeuvre.idOeuvre}}</td>
+                          <td>{{oeuvre.titre}}</td>
+                          <td>{{oeuvre.artiste}}</td>
+                          <td>{{oeuvre.dateCreation}}</td>
+                          <td>{{oeuvre.categorie}}</td>
+                          <td>{{oeuvre.dimensions}}</td>
+                          <td>{{oeuvre.description}}</td>
+                          <td>{{oeuvre.prix}} </td>
+                          <td>{{oeuvre.exposition.nom}} </td>
+                        </tr>
+               </tbody>
+    </table>
+    </div>
+  </div>
+</div>

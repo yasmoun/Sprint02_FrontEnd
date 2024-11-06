@@ -1,0 +1,45 @@
+<div class="container">
+
+ <!--<form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+            <label>Titre Oeuvre en tapant</label>
+  <input class="form-control"  #searchTerm (keyup)="onKeyUp(searchTerm.value)">
+        </div>
+    </form> -->
+
+    <form class="form-inline">
+<div class="form-group mx-sm-3 mb-2 mt-2 ">
+<label>Titre Oeuvre en tapant</label>
+<input #titre [(ngModel)]="searchTerm"  name="searchTerm" class="form-control" >
+</div>
+</form>
+
+  <div class="card shadow mb-4">
+    <div class="card-body">
+     <table  class="table table-striped">
+             <tr> <th>Id oeuvre</th>
+              <th>Titre</th>
+              <th>Artiste</th>
+              <th>Date Création</th>
+              <th>Catégorie</th>
+              <th>Dimensions</th>
+              <th>Description</th>
+              <th>Prix</th>
+              <th>Exposition</th></tr>
+              <tbody >
+                       <tr  *ngFor="let oeuvre of oeuvres | searchFilter: searchTerm ">
+                          <td>{{oeuvre.idOeuvre}}</td>
+                          <td>{{oeuvre.titre}}</td>
+                          <td>{{oeuvre.artiste}}</td>
+                          <td>{{oeuvre.dateCreation}}</td>
+                          <td>{{oeuvre.categorie}}</td>
+                          <td>{{oeuvre.dimensions}}</td>
+                          <td>{{oeuvre.description}}</td>
+                          <td>{{oeuvre.prix}} </td>
+                          <td>{{oeuvre.exposition.nom}} </td>
+                        </tr>
+               </tbody>
+    </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<form (ngSubmit)="saveExposition()" #expositionForm="ngForm">
+  <div [hidden]="ajout">
+    <label>ID Exposition</label>
+    <input type="number" [readonly]="!ajout"   [(ngModel)]="exposition.idExposition" name="idExposition" class="form-control w-25" required>
+  </div>
+  <div>
+    <label>Nom Exposition</label>
+    <input type="text" [(ngModel)]="exposition.nom" name="nomExposition" class="form-control" placeholder="Entrez un nom" required>
+  </div>
+  <div>
+    <label>Lieu Exposition</label>
+    <input type="text" [(ngModel)]="exposition.lieu" name="lieuExposition" class="form-control" placeholder="Entrez le lieu" required>
+  </div>
+  <div>
+    <label>Organisateur Exposition</label>
+    <input type="text" [(ngModel)]="exposition.organisateur" name="organisateur" class="form-control" required>
+  </div>
+  <div>
+    <label>Description Exposition</label>
+    <textarea [(ngModel)]="exposition.description" name="description" class="form-control" rows="3" required></textarea>
+  </div>
+  <div>
+    <label>Prix d'Entrée Exposition</label>
+    <input type="number" [(ngModel)]="exposition.prixEntree" name="prixEntree" class="form-control" min="0" required>
+  </div>
+  <div class="mt-2">
+    <button type="submit" [disabled]="expositionForm.invalid" class="btn btn-success" >{{ajout ? 'Ajouter' : 'Modifier'}} </button>
+  </div>
+</form>

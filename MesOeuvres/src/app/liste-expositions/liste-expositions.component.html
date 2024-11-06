@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+<app-update-exposition [exposition]="updatedExp" (expositionUpdated)="expositionUpdated($event)" [ajout]="ajout"></app-update-exposition>
+ <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nom Exposition</th>
+            <th>Lieu</th>
+            <th>Organisateur</th>
+            <th>Description</th>
+            <th>Prix d'Entrée</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let exp of expositions">
+            <td>{{exp.idExposition}}</td>
+            <td>{{exp.nom}}</td>
+            <td>{{exp.lieu}}</td>
+            <td>{{exp.organisateur}}</td>
+            <td>{{exp.description}}</td>
+            <td>{{exp.prixEntree}}</td>
+            <td><a class="btn btn-success"  (click)="updateExp(exp)">Editer</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
